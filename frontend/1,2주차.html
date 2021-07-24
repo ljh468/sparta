@@ -22,28 +22,34 @@
 
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
     </style>
     <style>
-        *{
+        * {
             font-family: 'Nanum Pen Script', cursive;
         }
-        .img{
-            width : 500px;
-            height : 500px;
-            margin : 40px auto 40px auto;
+
+        .img {
+            width: 500px;
+            height: 500px;
+            margin: 40px auto 40px auto;
 
         }
-        .submit{
-            width : auto;
-            margin : auto;
-            display : block;
-        }
-        .wrap{
-            margin : auto;
-            width : auto;
 
+        .submit {
+            width: auto;
+            margin: auto;
+            display: block;
+        }
+
+        .wrap {
+            margin: auto;
+            width: auto;
+
+        }
+        .rate{
+            font-size: 25px;
         }
     </style>
 </head>
@@ -55,8 +61,10 @@
              alt="Card image cap">
         <div class="card-body">
 
-            <span style="font-weight: bold; font-size: 30px">양초를 팝니다.</span><span>가격 : 3000원/개</span>
-            <div  style="font-size: 20px">
+            <span style="font-weight: bold; font-size: 30px">양초를 팝니다.</span>
+            <span>가격 : 3000원/개</span>
+            <div id="rate"></div>
+            <div style="font-size: 20px">
                 이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면 짜자잔 뭐든지 이뤄지게 된답니다. 하나 사가세요! 대나무 향이 아주 좋아요.
             </div>
             <div class="input-group mb-2 mr-sm-2">
@@ -95,9 +103,29 @@
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function () {
+        q1()
+    });
+
+    function q1() {
+        $.ajax({
+            type: "GET",
+            url: "http://spartacodingclub.shop/sparta_api/rate",
+            data: {},
+            success: function (response) {
+                console.log(response);
+
+                let rate = response['rate'];
+                console.log(rate);
+                let temp_html = `<spen class="rate">달러-원 환율 : ${rate}</spen>`
+                $("#rate").append(temp_html);
+            }
+        })
+    }
+</script>
 
 </html>
-
 
 
 <!--<html lang="en">
