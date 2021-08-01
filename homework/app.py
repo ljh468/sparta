@@ -3,8 +3,7 @@ from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 
 from pymongo import MongoClient
-
-client = MongoClient('mongodb://myUser:1234@13.125.99.115:23013/dbhomework')
+client = MongoClient('localhost', 27017)
 db = client['dbhomework']
 # db. = client.dbhomework
 
