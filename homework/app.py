@@ -4,8 +4,9 @@ app = Flask(__name__)
 
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
-db = client.dbhomework
+client = MongoClient('mongodb://myUser:1234@13.125.99.115:23013/dbhomework')
+db = client['dbhomework']
+# db. = client.dbhomework
 
 
 ## HTML 화면 보여주기
