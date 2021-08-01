@@ -1,3 +1,0 @@
-client = MongoClient('mongodb://myUser:1234@13.125.99.115:23013/dbhomework')
-db = client['dbhomework']
-# db. = client.dbhomework
